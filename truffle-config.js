@@ -16,6 +16,7 @@ module.exports = {
 
   compilers: {
     solc: {
+      version: "0.8.11+commit.d7f03943.Emscripten.clang",
       optimizer: {
         enabled: true,
         runs: 200
