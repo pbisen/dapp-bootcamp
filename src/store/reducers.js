@@ -24,7 +24,8 @@ function token(state = {}, action){
         case 'TOKEN_LOADED':
             return{
                 ...state,
-                contract : action.contract
+                contract : action.contract,
+                loaded : true
             }
         default:
             return state;
@@ -36,7 +37,8 @@ function exchange(state = {}, action){
         case 'EXCHANGE_LOADED':
             return{
                 ...state,
-                contract : action.contract
+                contract : action.contract,
+                loaded : true
             }
         default:
             return state;

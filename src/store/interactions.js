@@ -5,6 +5,8 @@ import {
     exchangeLoaded
 } from "./actions";
 import Web3 from 'web3';
+import Token from '../abis/Token.json';
+import Exchange from '../abis/Exchange.json'
 
 export const loadWeb3 = (dispatch) => {
     const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
@@ -19,28 +21,29 @@ export const loadAccount = async (web3, dispatch) => {
     return account;
 }
 
-export const loadToken = (web3, abi, contractAddress, dispatch) => {
-
+export const loadToken = async (web3, networkID, dispatch) => {
+    
     try{    
-        const token = new web3.eth.Contract(abi, contractAddress);
+        const token = new web3.eth.Contract(Token.abi, Token.networks[networkID].address)
         dispatch(tokenLoaded(token));
         return token;
     }
     catch(error){
-        window.alert("Contract not deployd to the current network.");
+        console.log("Token Contract not deployd to the current network.");
         return null;
     }
 }
 
-export const loadExchange = (web3, abi, contractAddress, dispatch) => {
+export const loadExchange = async (web3, networkID, dispatch) => {
+
 
     try{    
-        const exchange = new web3.eth.Contract(abi, contractAddress);
+        const exchange = new web3.eth.Contract(Exchange.abi, Exchange.networks[networkID].address);
         dispatch(exchangeLoaded(exchange));
         return exchange;
     }
     catch(error){
-        window.alert("Contract not deployd to the current network.");
+        console.log("Exchange Contract not deployd to the current network.");
         return null;
     }
 }
