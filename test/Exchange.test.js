@@ -1,29 +1,17 @@
-//Helper Functions, plis ignore
-const ETHER_ADDRESS = '0x0000000000000000000000000000000000000000'
+import { tokens, ether, EVM_REVERT, ETHER_ADDRESS } from './helpers'
 
-const EVM_REVERT = 'VM Exception while processing transaction: revert'
-
- const ether = (n) => {
-  return new web3.utils.BN(
-    web3.utils.toWei(n.toString(), 'ether')
-  )
-}
-
-// Same as ether
-const tokens = (n) => ether(n)
-
-
-const Token = artifacts.require('./Token');
-const Exchange = artifacts.require('./Exchange');
+const Token = artifacts.require('./Token')
+const Exchange = artifacts.require('./Exchange')
 
 require('chai')
   .use(require('chai-as-promised'))
-  .should();
+  .should()
 
 contract('Exchange', ([deployer, feeAccount, user1, user2, rebalancer]) => {
   let token
   let exchange
-  const feePercent = 10;
+  const feePercent = 10
+  const gasPrice = ether(0.00206736)
 
   beforeEach(async () => {
     // Deploy token
