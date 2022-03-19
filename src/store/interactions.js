@@ -43,7 +43,7 @@ export const loadAccount = async (web3, dispatch) => {
     dispatch(web3AccountLoaded(account))
     return account
   } else {
-    window.alert('Please login with MetaMask')
+    window.alert('Please login with MetaMask and select kovan network')
     return null
   }
 }
@@ -54,7 +54,7 @@ export const loadToken = async (web3, networkId, dispatch) => {
     dispatch(tokenLoaded(token))
     return token
   } catch (error) {
-    console.log('Contract not deployed to the current network. Please select another network with Metamask.')
+    console.log('Contract not deployed to the current network. Please select kovan network with Metamask.')
     return null
   }
 }
@@ -65,7 +65,7 @@ export const loadExchange = async (web3, networkId, dispatch) => {
     dispatch(exchangeLoaded(exchange))
     return exchange
   } catch (error) {
-    console.log('Contract not deployed to the current network. Please select another network with Metamask.')
+    console.log('Contract not deployed to the current network. Please select kovan network with Metamask.')
     return null
   }
 }
@@ -158,7 +158,7 @@ export const loadBalances = async (dispatch, web3, exchange, token, account) => 
       // Trigger all balances loaded
       dispatch(balancesLoaded())
     } else {
-      window.alert('Please login with MetaMask')
+      window.alert('Please login with MetaMask and select Kovan')
     }
 }
 
