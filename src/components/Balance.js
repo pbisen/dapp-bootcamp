@@ -65,6 +65,11 @@ const showForm = (props) => {
               <td>{etherBalance}</td>
               <td>{exchangeEtherBalance}</td>
             </tr>
+            <tr>
+              <td>RMN</td>
+              <td>{tokenBalance}</td>
+              <td>{exchangeTokenBalance}</td>
+            </tr>
           </tbody>
         </table>
 
@@ -85,15 +90,7 @@ const showForm = (props) => {
           </div>
         </form>
 
-        <table className="table table-dark table-sm small">
-          <tbody>
-            <tr>
-              <td>DAPP</td>
-              <td>{tokenBalance}</td>
-              <td>{exchangeTokenBalance}</td>
-            </tr>
-          </tbody>
-        </table>
+        <br></br>
 
         <form className="row" onSubmit={(event) => {
           event.preventDefault()
@@ -102,7 +99,7 @@ const showForm = (props) => {
           <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
-            placeholder="DAPP Amount"
+            placeholder="RMN Amount"
             onChange={(e) => dispatch( tokenDepositAmountChanged(e.target.value) )}
             className="form-control form-control-sm bg-dark text-white"
             required />
@@ -130,6 +127,11 @@ const showForm = (props) => {
               <td>{etherBalance}</td>
               <td>{exchangeEtherBalance}</td>
             </tr>
+            <tr>
+              <td>RMN</td>
+              <td>{tokenBalance}</td>
+              <td>{exchangeTokenBalance}</td>
+            </tr>
           </tbody>
         </table>
 
@@ -150,16 +152,7 @@ const showForm = (props) => {
           </div>
         </form>
 
-        <table className="table table-dark table-sm small">
-          <tbody>
-            <tr>
-              <td>DAPP</td>
-              <td>{tokenBalance}</td>
-              <td>{exchangeTokenBalance}</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <br></br>
         <form className="row" onSubmit={(event) => {
           event.preventDefault()
           withdrawToken(dispatch, exchange, web3, token, tokenWithdrawAmount, account)
@@ -167,7 +160,7 @@ const showForm = (props) => {
           <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
-            placeholder="DAPP Amount"
+            placeholder="RMN Amount"
             onChange={(e) => dispatch( tokenWithdrawAmountChanged(e.target.value) )}
             className="form-control form-control-sm bg-dark text-white"
             required />

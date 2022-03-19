@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 import Spinner from './Spinner'
 import {
   orderBookSelector,
@@ -15,15 +14,7 @@ const renderOrder = (order, props) => {
   const { dispatch, exchange, account } = props
 
   return(
-    <OverlayTrigger
-      key={order.id}
-      placement='auto'
-      overlay={
-        <Tooltip id={order.id}>
-          {`Click here to ${order.orderFillAction}`}
-        </Tooltip>
-      }
-    >
+    
       <tr
         key={order.id}
         className="order-book-order"
@@ -33,7 +24,6 @@ const renderOrder = (order, props) => {
         <td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
         <td>{order.etherAmount}</td>
       </tr>
-    </OverlayTrigger>
   )
 }
 
@@ -44,8 +34,8 @@ const showOrderBook = (props) => {
     <tbody>
       {orderBook.sellOrders.map((order) => renderOrder(order, props))}
       <tr>
-        <th>DAPP</th>
-        <th>DAPP/ETH</th>
+        <th>RMN</th>
+        <th>RMN/ETH</th>
         <th>ETH</th>
       </tr>
       {orderBook.buyOrders.map((order) => renderOrder(order, props))}
